@@ -1,0 +1,24 @@
+version: '3'
+services:
+  kibana:
+    image: kibana:7.7.0
+    container_name: elk_kibana
+    restart: always
+    volumes:
+      - ./elk-develop/kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
+    environment:
+      - ELASTICSEARCH_URL=http://10.157.4.120:9200 #设置访问elasticsearch的地址
+    ports:
+      - 5601:5601
+  logstash:
+    image: logstash:7.7.0
+    container_name: elk_logstash
+    restart: always
+    volumes:
+      - ./elk-develop/logstash/logstash-springboot.conf:/usr/share/logstash/pipeline/logstash.conf #挂载logstash的配置文件
+    ports:
+      - 4560:4560
+    
+
+
+      
