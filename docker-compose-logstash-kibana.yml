@@ -10,11 +10,3 @@ services:
       - ELASTICSEARCH_URL=http://database.internal.gen10.mly0110.org.cn:9200 #设置访问elasticsearch的地址
     ports:
       - 5601:5601
-  logstash:
-    image: logstash:7.7.0
-    container_name: elk_logstash
-    restart: always
-    volumes:
-      - ./elk/logstash/logstash-springboot.conf:/usr/share/logstash/pipeline/logstash.conf #挂载logstash的配置文件
-    ports:
-      - 4560:4560
