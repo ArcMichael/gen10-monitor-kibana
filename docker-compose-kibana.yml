@@ -2,10 +2,10 @@ version: '3'
 services:
   kibana:
     image: kibana:7.7.0
-    container_name: elk_kibana
+    container_name: kibana
     restart: always
     volumes:
-      - ./elk/kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
+      - ./conf/kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
     environment:
       - ELASTICSEARCH_URL=http://database.internal.gen10.mly0110.org.cn:9200 #设置访问elasticsearch的地址
     ports:
