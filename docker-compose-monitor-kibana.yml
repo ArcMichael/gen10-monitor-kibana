@@ -1,7 +1,7 @@
 version: '3'
 services:
   kibana:
-    image: kibana:7.7.0
+    image: 192.168.3.200:80/library/kibana:7.7.0
     container_name: kibana
     restart: always
     volumes:
